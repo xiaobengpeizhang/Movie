@@ -24,12 +24,16 @@
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Film> film { get; set; }
+        public virtual DbSet<User> user { get; set; }
+        public virtual DbSet<Comment> comment { get; set; }
 
         //规定自动生成的表名不是复数
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        //public System.Data.Entity.DbSet<Movie.Models.User> Users { get; set; }
 
     }
 

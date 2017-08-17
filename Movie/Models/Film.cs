@@ -17,5 +17,7 @@ namespace Movie.Models
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime show_at { get; set; }
+
+        public virtual ICollection<Comment> comments { get; set; }
     }
 }

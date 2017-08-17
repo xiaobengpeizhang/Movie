@@ -1,4 +1,6 @@
-﻿@model Movie.Models.Film
+﻿@using Movie.Models;
+
+@model Movie.Models.Film
 
 @{
     ViewBag.Title = "Details";
@@ -6,45 +8,96 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Film</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
+<h4>Film</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.title)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.director)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.title)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.director)
-        </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.director)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.director)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.description)
+    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.show_at)
-        </dt>
+    <dd>
+        @Html.DisplayFor(model => model.description)
+    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.show_at)
-        </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.show_at)
+    </dt>
 
-    </dl>
-</div>
+    <dd>
+        @Html.DisplayFor(model => model.show_at)
+    </dd>
+
+</dl>
+
+<h4>当前评论</h4>
+@foreach(Comment comment in Model.comments){
+    <p>@comment.user.userName 在 @comment.user.create_at 说：</p>
+    <strong>@comment.commentTitle</strong>
+    <p>@comment.commentBody</p>
+}
+
+
+<h4>发表评论</h4>
+<hr />
+@using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="filmId" value="@Model.filmID" />
+
+    <div class="form-horizontal">
+        
+        @*<p>title</p><input type="text" name="name" value=" " />
+        <p>body</p><input type="text" name="name" value=" " />*@
+        
+        <div class="form-group">
+
+            <label class="control-label col-md-2">标题</label>
+
+            <div class="col-md-10">
+                <input type="text" name="title" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label class="control-label col-md-2">评论内容</label>
+
+            <div class="col-md-10">
+                @*<input type="text" name="body" class="form-control" />*@
+                <textarea name="body" cols="3" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="发表" class="btn btn-block btn-success" />
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.filmID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+

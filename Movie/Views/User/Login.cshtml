@@ -1,0 +1,44 @@
+﻿
+@{
+    
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<p></p>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <h4>登录</h4>
+    <hr />
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">邮箱：</label>
+            <div class="col-md-10">
+                <input type="email" name="email" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">密码：</label>
+            <div class="col-md-10">
+                <input type="password" name="password" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="登录" class="btn btn-block btn-success" />
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

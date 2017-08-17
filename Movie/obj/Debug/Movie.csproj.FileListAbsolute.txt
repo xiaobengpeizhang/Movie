@@ -75,3 +75,4 @@ C:\Users\ohs\Documents\Visual Studio 2013\Projects\Movie\Movie\obj\Debug\Movie.p
 C:\Users\ohs\documents\visual studio 2013\Projects\Movie\Movie\obj\Debug\Movie.Migrations.InitialCreate.resources
 C:\Users\ohs\documents\visual studio 2013\Projects\Movie\Movie\obj\Debug\Movie.csproj.GenerateResource.Cache
 C:\Users\ohs\documents\visual studio 2013\Projects\Movie\Movie\obj\Debug\Movie.Migrations.changedatetimeformat.resources
+C:\Users\ohs\documents\visual studio 2013\Projects\Movie\Movie\obj\Debug\Movie.Migrations.addcomment_table.resources
